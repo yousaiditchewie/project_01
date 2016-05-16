@@ -26,9 +26,41 @@ var board = [
             [0,0,0,0]  // box 15
             ];
 
-/* Compensate for the fact that some borders overlap by ensuring the values match for common borders
+/* make values match for overlapping borders */
 
-
+function makeEqual() {
+  // right borders for row 0
+  board[0][1]  = board[1][3];
+  board[1][1]  = board[2][3];
+  board[2][1]  = board[3][3];
+  // right borders for row 1
+  board[4][1]  = board[5][3];
+  board[5][1]  = board[6][3];
+  board[6][1]  = board[7][3];
+  // right borders for row 2;
+  board[8][1]  = board[9][3];
+  board[9][1]  = board[10][3];
+  board[10][1] = board[11][3];
+  // right borders for row 3
+  board[12][1] = board[13][3];
+  board[13][1] = board[14][3];
+  board[14][1] = board[15][3];
+  // bottom border for row 0
+  board[0][2]  = board[4][0];
+  board[1][2]  = board[5][0];
+  board[2][2]  = board[6][0];
+  board[3][3]  = board[7][0];
+  // bottom border for row 1
+  board[4][2]  = board[8][0];
+  board[5][2]  = board[9][0];
+  board[6][2]  = board[10][0];
+  board[7][2]  = board[11][0];
+  // bottom border for row 2
+  board[8][2]  = board[12][0];
+  board[9][2]  = board[13][0];
+  board[10][2] = board[14][0];
+  board[11][2] = board[15][0];
+}
 /* BEHAVIOR */
 
 function play(y, x) {
@@ -38,6 +70,7 @@ function play(y, x) {
   } else {
     player = 1;
   }
+  makeEqual();
   console.log(player);
   return board;
 }

@@ -1,8 +1,8 @@
 
 
 body {
-  color: rgb(184,216,216);
-  background: rgb(79,99,103);
+  color: rgb(161,229,171);
+  background: rgb(1,22,39);
   font-family: "Orbitron", sans-serif;
   font-size: 19px;
 }
@@ -16,15 +16,15 @@ div.board {
   height: 560px;
   /*background: rgb(122,158,159);*/
   margin: auto;
-  box-shadow: 2px 3px 15px 3px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 2px 3px 15px 3px rgba(0, 0, 0, 0.2);*/
 }
 
 div.square {
   text-align: center;
-  background: rgb(79,99,103);
+  /*background: rgb(79,99,103);*/
   width: 125px;
   height: 125px;
-  border: 12px dashed rgb(184,216,216);
+  border: 12px dashed rgb(161,229,171);
   position: relative;
   /*border-radius: 20%;*/
 
@@ -35,3 +35,5 @@ div.square {
   display: inline-block;
   position: relative;
 }
+
+
