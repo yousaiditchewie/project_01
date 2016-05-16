@@ -2,15 +2,37 @@ console.log("linked");
 
 /* MOODEL */
 
-// 1. Each player takes turns clicking between dots which connects them.
-// 2. Once a player has completed a square (even if they did not make all borders of that square), the square belongs to that player.
-// 3. When the board is filled, the player with the most squares wins.
-
-/* Game Board */
-// I think the board will need to be an array of objects.
-// This will allow for the top, right, bottom, and left of each square to have a unique value.
-// When the T,R,B, and L values add to a certain amount, the square is filled and the previous player gets the point
-
-var $board = $("board")
+var player = 1; // value assigned to each square/border coordinate
 
 
+var board = [
+            [0,0,0,0], // box 0
+            [0,0,0,0], // box 1
+            [0,0,0,0], // box 2
+            [0,0,0,0], // box 3
+            [0,0,0,0], // box 4
+            [0,0,0,0], // box 5
+            [0,0,0,0], // box 6
+            [0,0,0,0], // box 7
+            [0,0,0,0], // box 8
+            [0,0,0,0], // box 9
+            [0,0,0,0], // box 10
+            [0,0,0,0], // box 11
+            [0,0,0,0], // box 12
+            [0,0,0,0], // box 13
+            [0,0,0,0], // box 14
+            [0,0,0,0]  // box 15
+            ];
+
+
+/* BEHAVIOR */
+function play(y, x) {
+  board[y][x] = player;
+  if (player === 1) {
+    player = -1;
+  } else {
+    player = 1;
+  }
+  console.log(board, player);
+  return board;
+}

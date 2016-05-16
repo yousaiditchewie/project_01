@@ -1,4 +1,37 @@
+
+
 body {
-  color: dodgerblue;
-  background: black;
+  color: rgb(184,216,216);
+  background: rgb(79,99,103);
+  font-family: "Orbitron", sans-serif;
+  font-size: 19px;
+}
+
+h1 {
+  text-align: center;
+}
+
+div.board {
+  width: 560px;
+  height: 560px;
+  /*background: rgb(122,158,159);*/
+  margin: auto;
+  box-shadow: 2px 3px 15px 3px rgba(0, 0, 0, 0.2);
+}
+
+div.square {
+  text-align: center;
+  background: rgb(79,99,103);
+  width: 125px;
+  height: 125px;
+  border: 12px dashed rgb(184,216,216);
+  position: relative;
+  /*border-radius: 20%;*/
+
+
+
+  margin-top: -16px;
+  margin-left: -16px;
+  display: inline-block;
+  position: relative;
 }
