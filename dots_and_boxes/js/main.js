@@ -6,7 +6,7 @@ var player = 1; // value assigned to square/border coordinate
 
 var player1Score = 0
 var player2Score = 0
-
+var gameStatus = "Game On!"
 var board = [
             [0,0,0,0], // box 0
             [0,0,0,0], // box 1
@@ -90,7 +90,7 @@ function makeEqual() {
 
 function taken() {
   for (var i = 0; i < board.length; i++) {
-    if (!board[i].includes(0)) {
+    if ((!board[i].includes(0)) && (board[i] !== 1) && (board[i] !== -1)) {
       board[i] = player;
       console.log(i + " got taken by " + player);
       if (player === 1) {
@@ -121,7 +121,7 @@ function play(y, x) {
   } else {
     player = 1;
   }
-  console.log(player);
+  console.log(player + "'s turn");
   return board;
 }
 
