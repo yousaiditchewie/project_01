@@ -64,11 +64,14 @@ function makeEqual() {
 /* BEHAVIOR */
 
 function play(y, x) {
+  // Disable repeat plays to same space
+  if (board[y][x] === 0) {
   board[y][x] = player;
   if (player === 1) {
     player = -1;
   } else {
     player = 1;
+  }
   }
   makeEqual();
   console.log(player);
@@ -86,7 +89,7 @@ $('.square').on('click', function(e) {
   } else if (e.offsetY < 0) {
     console.log(parseInt(this.id.substring(3)), 0);
     play(parseInt(this.id.substring(3)), 0);
-  } else (e.offsetY >= e.target.clientHeight) {
+  } else if (e.offsetY >= e.target.clientHeight) {
     console.log(parseInt(this.id.substring(3)), 2);
     play(parseInt(this.id.substring(3)), 2);
   }
