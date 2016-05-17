@@ -26,6 +26,11 @@ var board = [
             [0,0,0,0]  // box 15
             ];
 
+// Score Board
+function scoreBoard() {
+  console.log("Player 1: " + player1Score);
+  console.log("Player 2: " + player2Score);
+}
 /* make values match for overlapping borders */
 
 function makeEqual() {
@@ -88,6 +93,12 @@ function taken() {
     if (!board[i].includes(0)) {
       board[i] = player;
       console.log(i + " got taken by " + player);
+      if (player === 1) {
+        player1Score += 1;
+      } else {
+        player2Score += 1
+      }
+      scoreBoard();
       if (player === 1) {
         player = -1;
       } else {
