@@ -2,7 +2,7 @@ console.log("linked");
 
 /* MOODEL */
 
-var player = 1; // value assigned to each square/border coordinate
+var player = 1; // value assigned to square/border coordinate
 
 var player1Score = 0
 var player2Score = 0
@@ -29,19 +29,19 @@ var board = [
 /* make values match for overlapping borders */
 
 function makeEqual() {
-  // right borders for row 0
+  // right border for row 0
   board[0][1]  = board[1][3];
   board[1][1]  = board[2][3];
   board[2][1]  = board[3][3];
-  // right borders for row 1
+  // right border for row 4
   board[4][1]  = board[5][3];
   board[5][1]  = board[6][3];
   board[6][1]  = board[7][3];
-  // right borders for row 2;
+  // right border for row 8;
   board[8][1]  = board[9][3];
   board[9][1]  = board[10][3];
   board[10][1] = board[11][3];
-  // right borders for row 3
+  // right border for row 12
   board[12][1] = board[13][3];
   board[13][1] = board[14][3];
   board[14][1] = board[15][3];
@@ -50,12 +50,12 @@ function makeEqual() {
   board[1][2]  = board[5][0];
   board[2][2]  = board[6][0];
   board[3][3]  = board[7][0];
-  // bottom border for row 1
+  // bottom border for row 4
   board[4][2]  = board[8][0];
   board[5][2]  = board[9][0];
   board[6][2]  = board[10][0];
   board[7][2]  = board[11][0];
-  // bottom border for row 2
+  // bottom border for row 8
   board[8][2]  = board[12][0];
   board[9][2]  = board[13][0];
   board[10][2] = board[14][0];
@@ -86,8 +86,9 @@ $('.square').on('click', function(e) {
   } else if (e.offsetY < 0) {
     console.log(parseInt(this.id.substring(3)), 0);
     play(parseInt(this.id.substring(3)), 0);
-  } else if (e.offsetY >= e.target.clientHeight) {
+  } else (e.offsetY >= e.target.clientHeight) {
     console.log(parseInt(this.id.substring(3)), 2);
     play(parseInt(this.id.substring(3)), 2);
   }
+  console.log(board);
 });
