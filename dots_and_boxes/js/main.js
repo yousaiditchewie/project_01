@@ -96,14 +96,14 @@ function play(y, x) {
   // Disable repeat plays to same space
   if (board[y][x] === 0) {
   board[y][x] = player;
+  }
+  makeEqual();
+  taken();
   if (player === 1) {
     player = -1;
   } else {
     player = 1;
   }
-  }
-  makeEqual();
-  taken();
   console.log(player);
   return board;
 }
