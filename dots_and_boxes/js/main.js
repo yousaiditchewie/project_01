@@ -87,7 +87,7 @@ function taken() {
   for (var i = 0; i < board.length; i++) {
     if (!board[i].includes(0)) {
       board[i] = player;
-      console.log(board.indexOf(i) + " got taken by " + player);
+      console.log(i + " got taken by " + player);
       if (player === 1) {
         player = -1;
       } else {
