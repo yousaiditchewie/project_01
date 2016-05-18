@@ -109,16 +109,23 @@ function taken() {
     }
   }
 }
+// Determine a winner
 function winner() {
   if (player1Score > player2Score) {
-    console.log("Player 1 Wins!!!");
+    alert("Player 1 Wins!!!");
   } else if (player2Score > player1Score) {
-    console.log("Player 2 Wins!!!");
-  } else console.log("It's a tie. Play agian!");
+    alert("Player 2 Wins!!!");
+  } else {
+    alert("It's a tie. Play agian!");
+  }
 }
+// Determin if the game is over
 function gameState() {
-  for (var i = 0; i < board.length; i++) {
-
+  var state = board.every(function(cell) {
+    return cell.length > 4;
+  })
+  if (state) {
+    winner();
   }
 }
 /* BEHAVIOR */
@@ -130,6 +137,7 @@ function play(y, x) {
   }
   makeEqual();
   taken();
+  gameState();
   if (player === 1) {
     player = -1;
   } else {
