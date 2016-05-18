@@ -90,8 +90,10 @@ function makeEqual() {
 
 function taken() {
   for (var i = 0; i < board.length; i++) {
-    if ((!board[i].includes(0)) && (board[i] !== 1) && (board[i] !== -1)) {
-      board[i] = player;
+    if (!board[i].includes(0)) {
+    // This part is broken.
+    //Does not allow for continuous play after a square has been "taken"
+      board[i] = [player, player, player, player, 0];
       console.log(i + " got taken by " + player);
       if (player === 1) {
         player1Score += 1;
@@ -105,6 +107,18 @@ function taken() {
         player = 1;
       }
     }
+  }
+}
+function winner() {
+  if (player1Score > player2Score) {
+    console.log("Player 1 Wins!!!");
+  } else if (player2Score > player1Score) {
+    console.log("Player 2 Wins!!!");
+  } else console.log("It's a tie. Play agian!");
+}
+function gameState() {
+  for (var i = 0; i < board.length; i++) {
+
   }
 }
 /* BEHAVIOR */
