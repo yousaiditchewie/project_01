@@ -177,16 +177,24 @@ function gameState() {
 function play(y, x) {
   // Disable repeat plays to same space
   if (board[y][x] === 0) {
-  board[y][x] = player;
-  makeEqual();
-  taken1();
-  taken2();
-  scoreBoard();
-  gameState();
-  switchPlayer();
+    board[y][x] = player;
+    makeEqual();
+    taken1();
+    taken2();
+    scoreBoard();
+    gameState();
+    switchPlayer();
+    render();
   }
   console.log("Player " + player + "'s turn");
   return board;
+}
+
+
+// RENDER
+
+function render() {
+
 }
 
 // CLICK TO PLAY

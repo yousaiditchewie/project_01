@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="">
+
+  <script   src="https://code.jquery.com/jquery-2.2.3.js"   integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4="   crossorigin="anonymous"></script>
+
+  <style>
+
+  /* COLOR SCHEMES */
+
+  /* 1. https://coolors.co/bee6ce-bcffdb-8dffcd-68d89b-4f9d69
+     2. https://coolors.co/3a2e39-1e555c-002a32-9df8d3-f15152
+     3. https://coolors.co/b5ffd6-f87060-53637f-102542-f8ffe5 */
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      font-size: 0;
+    }
+
+    html,
+    body,
+    .board {
+      background: rgb(16, 37, 66);
+    }
+
+    .board {
+      width: 680px;
+      height: 680px;
+      margin: 0 auto;
+      padding-left: 10px;
+    }
+
+    .dot {
+      background: rgb(248, 255, 229);
+    }
+
+    .line {
+      background: rgb(83, 99, 127);
+      /*opacity: 0.5;*/
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .line.p1-turn:hover {
+      background: green;
+      opacity: 1;
+      transition: 0.25s;
+    }
+
+    .line.p2-turn:hover {
+      background: yellow;
+      opacity: 1;
+      transition: 0.25s;
+    }
+
+    .box,
+    .line {
+      width: 140px;
+      height: 140px;
+    }
+
+    .line.horizontal {
+      height: 20px;
+      margin-left: -10px;
+            position: relative;
+      top: -10px;
+    }
+
+    .line.vertical {
+      width: 20px;
+    }
+
+    .dot {
+      width: 40px;
+      height: 40px;
+      margin-left: -10px;
+      position: relative;
+      z-index: 1;
+      border-radius: 100%;
+    }
+
+    .dot,
+    .line,
+    .box {
+      display: inline-block;
+      margin-bottom: -10px;
+    }
+
+    .line-rank {
+      border: 1px solid gold;
+      margin-bottom: -10px;
+    }
+  </style>
+</head>
+<body>
+<div id="board" class="board">
+  <!-- <div class="line-rank"> -->
+    <div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><br>
+  <!-- </div> -->
+  <div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><br>
+  <div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><br>
+  <div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><br>
+  <div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><br>
+  <div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><br>
+  <div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><br>
+  <div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><div class="box"></div><div class="line vertical"></div><br>
+  <div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><div class="line horizontal"></div><div class="dot"></div><br>
+</div>
+
+<script>
+  $(".line").addClass("p1-turn");
+  function switchPlayer() {
+    $(".line").toggleClass("p1-turn");
+    $(".line").toggleClass("p2-turn");
+  }
+</script>
+</body>
+</html>
