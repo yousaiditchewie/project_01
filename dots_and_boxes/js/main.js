@@ -192,10 +192,13 @@ function play(y, x) {
 
 
 // RENDER
+  $(".line").addClass("p1-turn");
+  function switchPlayer() {
+    $(".line").toggleClass("p1-turn");
+    $(".line").toggleClass("p2-turn");
+  // function render() {
 
-function render() {
-
-}
+  }
 
 // CLICK TO PLAY
 $('.square').on('click', function(e) {

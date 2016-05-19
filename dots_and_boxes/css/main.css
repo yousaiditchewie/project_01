@@ -1,39 +1,87 @@
-
-
-body {
-  color: rgb(161,229,171);
-  background: rgb(1,22,39);
-  font-family: "Orbitron", sans-serif;
-  font-size: 19px;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  font-size: 0;
 }
 
-h1 {
-  text-align: center;
+html,
+body,
+.board {
+  background: rgb(16, 37, 66);
 }
 
-div.board {
-  width: 560px;
-  height: 560px;
-  /*background: rgb(122,158,159);*/
-  margin: auto;
-  /*box-shadow: 2px 3px 15px 3px rgba(0, 0, 0, 0.2);*/
+.board {
+  width: 680px;
+  height: 680px;
+  margin: 0 auto;
+  padding-left: 10px;
 }
 
-div.square {
-  text-align: center;
-  /*background: rgb(79,99,103);*/
-  width: 125px;
-  height: 125px;
-  border: 12px dashed rgb(161,229,171);
+.dot {
+  background: rgb(248, 255, 229);
+}
+
+.line {
+  background: rgb(83, 99, 127);
+  /*opacity: 0.5;*/
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.line.p1-turn:hover {
+  background: rgb(248, 112, 96);
+  opacity: 1;
+  transition: 0.25s;
+}
+
+.line.p2-turn:hover {
+  background: rgb(181, 255, 214);
+  opacity: 1;
+  transition: 0.25s;
+}
+
+.box,
+.line {
+  width: 140px;
+  height: 140px;
+}
+
+.line.horizontal {
+  height: 20px;
+  margin-left: -10px;
+        position: relative;
+  top: -10px;
+}
+
+.line.vertical {
+  width: 20px;
+}
+
+.dot {
+  width: 40px;
+  height: 40px;
+  margin-left: -10px;
   position: relative;
-  /*border-radius: 20%;*/
+  z-index: 1;
+  border-radius: 100%;
+}
 
-
-
-  margin-top: -16px;
-  margin-left: -16px;
+.dot,
+.line,
+.box {
   display: inline-block;
-  position: relative;
+  margin-bottom: -10px;
 }
 
+.line-rank {
+  border: 1px solid gold;
+  margin-bottom: -10px;
+}
 
+.player1 {
+  background: rgb(248, 112, 96);
+}
+
+.player2 {
+  background: rgb(181, 255, 214);
+}
