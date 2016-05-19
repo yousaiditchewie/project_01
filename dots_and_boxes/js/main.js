@@ -1,32 +1,39 @@
 console.log("linked");
-
+startGame();
+$(".line").addClass("p1-turn");
 /* MOODEL */
-
-var player = 1; // value assigned to square/border coordinate
+var player; // value assigned to square/border coordinate
                 // player toggles b/t 1-2
+var player1Score;
+var player2Score;
+var gameStatus;
+var board;
+function startGame () {
+  player = 1; // value assigned to square/border coordinate
+                  // player toggles b/t 1-2
 
-var player1Score = 0;
-var player2Score = 0;
-var gameStatus = "Game On!";
-var board = [
-            [0,0,0,0], // box 0
-            [0,0,0,0], // box 1
-            [0,0,0,0], // box 2
-            [0,0,0,0], // box 3
-            [0,0,0,0], // box 4
-            [0,0,0,0], // box 5
-            [0,0,0,0], // box 6
-            [0,0,0,0], // box 7
-            [0,0,0,0], // box 8
-            [0,0,0,0], // box 9
-            [0,0,0,0], // box 10
-            [0,0,0,0], // box 11
-            [0,0,0,0], // box 12
-            [0,0,0,0], // box 13
-            [0,0,0,0], // box 14
-            [0,0,0,0]  // box 15
-            ];
-
+  player1Score = 0;
+  player2Score = 0;
+  gameStatus = "Game On!";
+  board = [
+          [0,0,0,0], // box 0
+          [0,0,0,0], // box 1
+          [0,0,0,0], // box 2
+          [0,0,0,0], // box 3
+          [0,0,0,0], // box 4
+          [0,0,0,0], // box 5
+          [0,0,0,0], // box 6
+          [0,0,0,0], // box 7
+          [0,0,0,0], // box 8
+          [0,0,0,0], // box 9
+          [0,0,0,0], // box 10
+          [0,0,0,0], // box 11
+          [0,0,0,0], // box 12
+          [0,0,0,0], // box 13
+          [0,0,0,0], // box 14
+          [0,0,0,0]  // box 15
+          ];
+}
 // Score Board
 function scoreBoard() {
   console.log("Player 1: " + player1Score);
@@ -126,6 +133,8 @@ function switchPlayer() {
   } else {
     player = 1;
   }
+  $(".line").toggleClass("p1-turn");
+  $(".line").toggleClass("p2-turn");
 }
 // function taken() { // THIS IS A SKETCH, NOT A WORKING FUNCTION!!!
 //   board.forEach(function(e, i) {
@@ -184,7 +193,7 @@ function play(y, x) {
     scoreBoard();
     gameState();
     switchPlayer();
-    render();
+    // render();
   }
   console.log("Player " + player + "'s turn");
   return board;
@@ -192,28 +201,35 @@ function play(y, x) {
 
 
 // RENDER
-  $(".line").addClass("p1-turn");
-  function switchPlayer() {
-    $(".line").toggleClass("p1-turn");
-    $(".line").toggleClass("p2-turn");
-  // function render() {
-
-  }
+  // $(".line").addClass("p1-turn");
+  // function switchPlayer() {
+  //   $(".line").toggleClass("p1-turn");
+  //   $(".line").toggleClass("p2-turn");
+  // function render() { }
 
 // CLICK TO PLAY
-$('.square').on('click', function(e) {
-  if (e.offsetX < 0) {
-    console.log(parseInt(this.id.substring(3)), 3);
-    play(parseInt(this.id.substring(3)), 3);
-  } else if (e.offsetX >= e.target.clientWidth) {
-    console.log(parseInt(this.id.substring(3)), 1);
-    play(parseInt(this.id.substring(3)), 1);
-  } else if (e.offsetY < 0) {
-    console.log(parseInt(this.id.substring(3)), 0);
-    play(parseInt(this.id.substring(3)), 0);
-  } else if (e.offsetY >= e.target.clientHeight) {
-    console.log(parseInt(this.id.substring(3)), 2);
-    play(parseInt(this.id.substring(3)), 2);
-  }
-  console.log(board);
-});
+
+$('#board').on('click', '.line', function() {
+  idToBoard($(this).attr('id'));
+})
+
+function idToBoard(htmlID) {
+  var selector = htmlID.substring(1).split(',');
+  play(selector[0],selector[1]);
+}
+// $('.line').on('click', function(e) {
+//   if (e.offsetX < 0) {
+//     console.log(parseInt(this.id.substring(3)), 3);
+//     play(parseInt(this.id.substring(3)), 3);
+//   } else if (e.offsetX >= e.target.clientWidth) {
+//     console.log(parseInt(this.id.substring(3)), 1);
+//     play(parseInt(this.id.substring(3)), 1);
+//   } else if (e.offsetY < 0) {
+//     console.log(parseInt(this.id.substring(3)), 0);
+//     play(parseInt(this.id.substring(3)), 0);
+//   } else if (e.offsetY >= e.target.clientHeight) {
+//     console.log(parseInt(this.id.substring(3)), 2);
+//     play(parseInt(this.id.substring(3)), 2);
+//   }
+//   console.log(board);
+// });
