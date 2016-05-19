@@ -211,6 +211,7 @@ function play(y, x) {
 
 $('#board').on('click', '.line', function() {
   idToBoard($(this).attr('id'));
+  console.log($(this).attr('id'));
 })
 
 function idToBoard(htmlID) {
