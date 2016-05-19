@@ -3,10 +3,11 @@ console.log("linked");
 /* MOODEL */
 
 var player = 1; // value assigned to square/border coordinate
+                // player toggles b/t 1-2
 
-var player1Score = 0
-var player2Score = 0
-var gameStatus = "Game On!"
+var player1Score = 0;
+var player2Score = 0;
+var gameStatus = "Game On!";
 var board = [
             [0,0,0,0], // box 0
             [0,0,0,0], // box 1
@@ -53,6 +54,7 @@ function makeEqual() {
       }
     }
   }
+}
   // right border for row 0
   // board[0][1]  = board[1][3];
   // board[1][1]  = board[2][3];
@@ -84,15 +86,11 @@ function makeEqual() {
   // board[9][2]  = board[13][0];
   // board[10][2] = board[14][0];
   // board[11][2] = board[15][0];
-}
 
 // Make a square "taken"
-
-function taken() {
+function taken1() {
   for (var i = 0; i < board.length; i++) {
-    if (!board[i].includes(0)) {
-    // This part is broken.
-    //Does not allow for continuous play after a square has been "taken"
+    if (!board[i].includes(0)) {  // !!!doesn't work if one move completes 2 squares!!!
       board[i] = [player, player, player, player, 0];
       console.log(i + " got taken by " + player);
       if (player === 1) {
@@ -100,15 +98,61 @@ function taken() {
       } else {
         player2Score += 1
       }
-      scoreBoard();
+      switchPlayer();
+    }
+    break; // addresses issue where one play completing two squares
+          // assigns points to both players
+  }
+}
+function taken2() {
+  for (var i = 0; i < board.length; i++) {
+    if (!board[i].includes(0)) {
+      switchPlayer();
+      board[i] = [player, player, player, player, 0];
+      console.log(i + " got taken by " + player);
       if (player === 1) {
-        player = -1;
+        player1Score += 1;
       } else {
-        player = 1;
+        player2Score += 1
       }
+      switchPlayer();
     }
   }
 }
+
+function switchPlayer() {
+  if (player === 1) {
+    player = 2;
+  } else {
+    player = 1;
+  }
+}
+// function taken() { // THIS IS A SKETCH, NOT A WORKING FUNCTION!!!
+//   board.forEach(function(e, i) {
+//     if(!(e.includes(0))) {
+//       [i] = [player, player, player, player, 0];
+//       console.log(i + " got taken by " + player);
+//       if (player === 1) {
+//         player1Score +=1;
+//       } else {
+//         player2Score += 1;
+//       }
+//       switchPlayer();
+//     }
+//   })
+// }
+
+// function taken() {
+//   var isTaken = board.every(function(cell) {
+//     return cell.includes(0);
+//   })
+//   if (!isTaken) {
+//     cell = [player, player, player, player, 0];
+//     switchPlayer();
+//   }
+// }
+
+
 // Determine a winner
 function winner() {
   if (player1Score > player2Score) {
@@ -121,10 +165,10 @@ function winner() {
 }
 // Determin if the game is over
 function gameState() {
-  var state = board.every(function(cell) {
+  var gameOver = board.every(function(cell) {
     return cell.length > 4;
   })
-  if (state) {
+  if (gameOver) {
     winner();
   }
 }
@@ -134,16 +178,14 @@ function play(y, x) {
   // Disable repeat plays to same space
   if (board[y][x] === 0) {
   board[y][x] = player;
-  }
   makeEqual();
-  taken();
+  taken1();
+  taken2();
+  scoreBoard();
   gameState();
-  if (player === 1) {
-    player = -1;
-  } else {
-    player = 1;
+  switchPlayer();
   }
-  console.log(player + "'s turn");
+  console.log("Player " + player + "'s turn");
   return board;
 }
 
