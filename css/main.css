@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+html,
+body,
+.board {
+  background: rgb(16, 37, 66);
+}
+
+.board {
+  font-size: 0;
+  width: 680px;
+  height: 680px;
+  margin: 0px auto;
+  padding-left: 10px;
+}
+
+.dot {
+  background: rgb(248, 255, 229);
+}
+
+.line {
+  background: rgb(83, 99, 127);
+  /*opacity: 0.5;*/
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.line.p1-turn:hover {
+  background: rgb(248, 112, 96);
+  opacity: 1;
+  transition: 0.25s;
+}
+
+.line.p2-turn:hover {
+  background: rgb(181, 255, 214);
+  opacity: 1;
+  transition: 0.25s;
+}
+
+.box,
+.line {
+  width: 140px;
+  height: 140px;
+}
+
+.line.horizontal {
+  height: 20px;
+  margin-left: -10px;
+        position: relative;
+  top: -10px;
+}
+
+.line.vertical {
+  width: 20px;
+}
+
+.dot {
+  width: 40px;
+  height: 40px;
+  margin-left: -10px;
+  position: relative;
+  z-index: 1;
+  border-radius: 100%;
+}
+
+.dot,
+.line,
+.box {
+  display: inline-block;
+  margin-bottom: -10px;
+}
+
+.line-rank {
+  border: 1px solid gold;
+  margin-bottom: -10px;
+}
+
+.boxPlayer1{
+  background: rgba(248, 112, 96, 1);
+  /*border-radius: 100%;*/
+  transition: 0.25s;
+}
+
+.boxPlayer2{
+  background: rgba(181, 255, 214, 1);
+  /*border-radius: 100%;*/
+  transition: 0.25s;
+}
+
+.player1 {
+  background: rgba(248, 112, 96, 0.6);
+}
+
+.player2 {
+  background: rgba(181, 255, 214, 0.6);
+}
+
+#info{
+  font-family: 'Poiret One', cursive;
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 158px;
+  height: 170px;
+}
+
+#info div {
+  width: 80%;
+  height: 35%;
+  margin: 10%;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#info div:first-child {
+  color: rgb(16, 37, 66);
+  background-color: rgba(248, 112, 96, 1);
+  border-color: rgba(248, 112, 96, 1);
+}
+
+#info div:first-child.p2 {
+  background-color: rgba(181, 255, 214, 1);
+  border-color: rgba(181, 255, 214, 1);
+}
+
+#restart {
+  cursor: pointer;
+}
+
+#restart:hover {
+  background-color: white;
+  color: rgb(16, 37, 66);
+}
+
+#game-name {
+  font-family: 'Poiret One', cursive;
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+
