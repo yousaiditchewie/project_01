@@ -15,6 +15,7 @@ body,
   height: 680px;
   margin: 0px auto;
   padding-left: 10px;
+  z-index: 2;
 }
 
 .dot {
@@ -26,6 +27,7 @@ body,
   /*opacity: 0.5;*/
   transition: 0.25s;
   cursor: pointer;
+  z-index: 2;
 }
 
 .line.p1-turn:hover {
@@ -49,7 +51,7 @@ body,
 .line.horizontal {
   height: 20px;
   margin-left: -10px;
-        position: relative;
+  position: relative;
   top: -10px;
 }
 
@@ -62,7 +64,7 @@ body,
   height: 40px;
   margin-left: -10px;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   border-radius: 100%;
 }
 
@@ -101,12 +103,12 @@ body,
 #info{
   font-family: 'Poiret One', cursive;
   font-size: 30px;
-  color: white;
   position: absolute;
   left: 20px;
   top: 20px;
   width: 158px;
-  height: 170px;
+  height: 160px;
+  z-index: 1;
 }
 
 #info div {
@@ -114,8 +116,7 @@ body,
   height: 35%;
   margin: 10%;
   padding: 10px;
-  border: 2px solid red;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
 }
 
@@ -132,17 +133,24 @@ body,
 
 #restart {
   cursor: pointer;
+  color: rgb(16, 37, 66);
+  background: rgb(248, 255, 229);
+  border: 2px solid rgb(248, 255, 229);
+  transition: 0.25s;
 }
 
 #restart:hover {
-  background-color: white;
-  color: rgb(16, 37, 66);
+  text-align: center;
+  background-color: rgb(16, 37, 66);
+  color: rgb(248, 255, 229);
+  border: 2px solid rgb(248, 255, 229);
+  transition: 0.25s;
 }
 
 #game-name {
   font-family: 'Poiret One', cursive;
   font-size: 50px;
-  color: white;
+  color: rgb(248, 255, 229);
   position: absolute;
   top: 40px;
   right: 40px;
