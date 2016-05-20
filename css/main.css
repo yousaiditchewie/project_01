@@ -124,11 +124,13 @@ body,
   color: rgb(16, 37, 66);
   background-color: rgba(248, 112, 96, 1);
   border-color: rgba(248, 112, 96, 1);
+  transition: 0.25s;
 }
 
 #info div:first-child.p2 {
   background-color: rgba(181, 255, 214, 1);
   border-color: rgba(181, 255, 214, 1);
+  transition: 0.25s;
 }
 
 #restart {
