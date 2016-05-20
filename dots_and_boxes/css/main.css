@@ -78,10 +78,22 @@ body,
   margin-bottom: -10px;
 }
 
+.boxPlayer1{
+  background: rgba(248, 112, 96, 1);
+  /*border-radius: 100%;*/
+  transition: 0.25s;
+}
+
+.boxPlayer2{
+  background: rgba(181, 255, 214, 1);
+  /*border-radius: 100%;*/
+  transition: 0.25s;
+}
+
 .player1 {
-  background: rgb(248, 112, 96);
+  background: rgba(248, 112, 96, 0.6);
 }
 
 .player2 {
-  background: rgb(181, 255, 214);
+  background: rgba(181, 255, 214, 0.6);
 }

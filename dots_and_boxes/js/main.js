@@ -98,6 +98,7 @@ function makeEqual() {
 function taken1() {
   for (var i = 0; i < board.length; i++) {
     if (!board[i].includes(0)) {  // !!!doesn't work if one move completes 2 squares!!!
+      $('#box' + i).addClass('boxPlayer' + player);
       board[i] = [player, player, player, player, 0];
       console.log(i + " got taken by " + player);
       if (player === 1) {
@@ -106,8 +107,8 @@ function taken1() {
         player2Score += 1
       }
       switchPlayer();
+      break; // addresses issue where one play completing two squares
     }
-    break; // addresses issue where one play completing two squares
           // assigns points to both players
   }
 }
@@ -115,6 +116,7 @@ function taken2() {
   for (var i = 0; i < board.length; i++) {
     if (!board[i].includes(0)) {
       switchPlayer();
+      $('#box' + i).addClass('boxPlayer' + player);
       board[i] = [player, player, player, player, 0];
       console.log(i + " got taken by " + player);
       if (player === 1) {
@@ -201,15 +203,18 @@ function play(y, x) {
 
 
 // RENDER
-  // $(".line").addClass("p1-turn");
-  // function switchPlayer() {
-  //   $(".line").toggleClass("p1-turn");
-  //   $(".line").toggleClass("p2-turn");
-  // function render() { }
+
+// var $line = $
+//   // $(".line").addClass("p1-turn");
+//   // function switchPlayer() {
+//   //   $(".line").toggleClass("p1-turn");
+//   //   $(".line").toggleClass("p2-turn");
+//   // function render() { }
 
 // CLICK TO PLAY
 
 $('#board').on('click', '.line', function() {
+  $(this).addClass('player' + player);
   idToBoard($(this).attr('id'));
   console.log($(this).attr('id'));
 })
