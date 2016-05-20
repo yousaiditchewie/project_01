@@ -1,6 +1,6 @@
 console.log("linked");
 startGame();
-$(".line").addClass("p1-turn");
+// $('.line').addClass('p1-turn');
 /* MOODEL */
 var player; // value assigned to square/border coordinate
                 // player toggles b/t 1-2
@@ -34,8 +34,11 @@ function startGame () {
           [0,0,0,0], // box 14
           [0,0,0,0]  // box 15
           ];
-
+  $('#player-turn').removeClass('p2');
   $('.line').removeClass('player1').removeClass('player2');
+  $('.box').removeClass('boxPlayer1').removeClass('boxPlayer2');
+  $('.line').removeClass('p1-turn').removeClass('p2-turn');
+  $('.line').addClass('p1-turn');
 }
 
 
