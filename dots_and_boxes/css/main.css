@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   padding: 0;
-  font-size: 0;
 }
 
 html,
@@ -11,9 +10,10 @@ body,
 }
 
 .board {
+  font-size: 0;
   width: 680px;
   height: 680px;
-  margin: 0 auto;
+  margin: 0px auto;
   padding-left: 10px;
 }
 
@@ -97,3 +97,55 @@ body,
 .player2 {
   background: rgba(181, 255, 214, 0.6);
 }
+
+#info{
+  font-family: 'Poiret One', cursive;
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 158px;
+  height: 170px;
+}
+
+#info div {
+  width: 80%;
+  height: 35%;
+  margin: 10%;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#info div:first-child {
+  color: rgb(16, 37, 66);
+  background-color: rgba(248, 112, 96, 1);
+  border-color: rgba(248, 112, 96, 1);
+}
+
+#info div:first-child.p2 {
+  background-color: rgba(181, 255, 214, 1);
+  border-color: rgba(181, 255, 214, 1);
+}
+
+#restart {
+  cursor: pointer;
+}
+
+#restart:hover {
+  background-color: white;
+  color: rgb(16, 37, 66);
+}
+
+#game-name {
+  font-family: 'Poiret One', cursive;
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+

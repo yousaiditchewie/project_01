@@ -9,6 +9,7 @@ var player2Score;
 var gameStatus;
 var board;
 function startGame () {
+
   player = 1; // value assigned to square/border coordinate
                   // player toggles b/t 1-2
 
@@ -33,7 +34,11 @@ function startGame () {
           [0,0,0,0], // box 14
           [0,0,0,0]  // box 15
           ];
+
+  $('.line').removeClass('player1').removeClass('player2');
 }
+
+
 // Score Board
 function scoreBoard() {
   console.log("Player 1: " + player1Score);
@@ -44,7 +49,7 @@ function scoreBoard() {
 function makeEqual() {
   for(var i = 0; i < 15; i++) {
     // right logic
-    if(i !== 3 || i !== 7 || i !== 11) {
+    if(i !== 3 && i !== 7 && i !== 11) {
       if (board[i][1] !== 0 && board[i + 1][3] === 0) {
         board[i+1][3] = board[i][1];
       } else {
@@ -130,13 +135,10 @@ function taken2() {
 }
 
 function switchPlayer() {
-  if (player === 1) {
-    player = 2;
-  } else {
-    player = 1;
-  }
+  player = player === 1 ? 2 : 1;
   $(".line").toggleClass("p1-turn");
   $(".line").toggleClass("p2-turn");
+  $("#player-turn").toggleClass('p2');
 }
 // function taken() { // THIS IS A SKETCH, NOT A WORKING FUNCTION!!!
 //   board.forEach(function(e, i) {
@@ -195,12 +197,15 @@ function play(y, x) {
     scoreBoard();
     gameState();
     switchPlayer();
-    // render();
+    updateInfo();
   }
   console.log("Player " + player + "'s turn");
   return board;
 }
 
+function updateInfo() {
+
+}
 
 // RENDER
 
@@ -218,6 +223,8 @@ $('#board').on('click', '.line', function() {
   idToBoard($(this).attr('id'));
   console.log($(this).attr('id'));
 })
+
+$('#restart').on('click', startGame);
 
 function idToBoard(htmlID) {
   var selector = htmlID.substring(1).split(',');
